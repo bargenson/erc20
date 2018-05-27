@@ -7,10 +7,12 @@
     "test": "test"
   },
   "scripts": {
+    "lint": "eslint . && solhint contracts/**/*.sol",
     "compile": "truffle compile",
+    "test": "solidity-coverage",
+    "verify": "npm run lint && npm test",
     "deploy": "truffle migrate",
     "console": "truffle console",
-    "lint": "eslint . && solhint contracts/**/*.sol",
     "start-network": "ganache-cli",
     "clean": "rm -rf ./build"
   },
@@ -29,6 +31,7 @@
     "ethereumjs-wallet": "^0.6.0",
     "ganache-cli": "^6.1.0",
     "solhint": "^1.2.1",
+    "solidity-coverage": "^0.5.4",
     "truffle": "^4.1.11"
   }
 }

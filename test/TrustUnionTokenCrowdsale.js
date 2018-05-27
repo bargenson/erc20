@@ -1,12 +1,13 @@
-const chai = require('chai');
-const expect = chai.expect;
+/* global artifacts:true web3:true it:function contract:function */
+
+const { expect } = require('chai');
 
 const TrustUnionToken = artifacts.require('TrustUnionToken');
 const TrustUnionTokenCrowdsale = artifacts.require('TrustUnionTokenCrowdsale');
 
 contract('TrustUnionTokenCrowdsale', (accounts) => {
 
-  it ('should not be closed when just deployed', async () => {
+  it('should not be closed when just deployed', async () => {
     // Given
     const trustUnionTokenCrowdsale = await TrustUnionTokenCrowdsale.deployed();
 
@@ -14,9 +15,10 @@ contract('TrustUnionTokenCrowdsale', (accounts) => {
     const closed = await trustUnionTokenCrowdsale.hasClosed();
 
     // Then
+    /* eslint no-unused-expressions: 'off' */
     expect(closed).to.be.false;
   });
-  
+
   it('should increase account balance and total supply when tokens are bought and crowdsale owns the token contract', async () => {
     // Given
     const trustUnionToken = await TrustUnionToken.deployed();

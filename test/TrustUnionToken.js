@@ -1,10 +1,11 @@
-const chai = require('chai');
-const expect = chai.expect;
+/* global artifacts:true web3:true it:function contract:function */
+
+const { expect } = require('chai');
 
 const TrustUnionToken = artifacts.require('TrustUnionToken');
 
 contract('TrustUnionToken', (accounts) => {
-  
+
   it('should start with an empty supply', async () => {
     // Given
     const trustUnionToken = await TrustUnionToken.deployed();
@@ -26,6 +27,7 @@ contract('TrustUnionToken', (accounts) => {
       await trustUnionToken.mint(accounts[0], amount);
       throw new Error('Should have failed');
     } catch (err) {
+      /* eslint no-unused-expressions: 'off' */
       expect(err).to.exist;
       expect(err).to.be.an.instanceOf(Error);
     }
