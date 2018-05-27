@@ -6,7 +6,7 @@ const TrustUnionTokenCrowdsale = artifacts.require('./TrustUnionTokenCrowdsale.s
 
 module.exports = function (deployer) {
   return deployer.deploy(TrustUnionToken)
-    .then(() => {
+    .then((trustUnionToken) => {
       return new Promise((resolve, reject) => {
         web3.eth.getBlock('latest', (err, latestBlock) => {
           if (err) throw err;
@@ -22,8 +22,10 @@ module.exports = function (deployer) {
             rate,
             address,
             TrustUnionToken.address,
-          ).then((result) => {
-            resolve(result);
+          ).then(() => {
+            return trustUnionToken.transferOwnership(TrustUnionTokenCrowdsale.address);
+          }).then(() => {
+            resolve();
           }).catch((err) => {
             reject(err);
           });
