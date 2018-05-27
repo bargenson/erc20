@@ -22,6 +22,7 @@
     "truffle-privatekey-provider": "^0.1.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",
