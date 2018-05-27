@@ -11,7 +11,8 @@
     "deploy": "truffle migrate",
     "console": "truffle console",
     "lint": "eslint . && solhint contracts/**/*.sol",
-    "start-network": "ganache-cli"
+    "start-network": "ganache-cli",
+    "clean": "rm -rf ./build"
   },
   "author": "Brice Argenson / SmartPulsar Inc.",
   "license": "ISC",
